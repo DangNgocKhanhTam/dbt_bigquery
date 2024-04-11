@@ -24,20 +24,20 @@ WITH
     dim_product__rename_column ),
  dim_product__convert_boolean as (
     SELECT
-    *
+    *,
     CASE WHEN is_chiller_stock_boolean is True THEN "Chiller Stock" 
-         WHEN is_chiller_stock_boolean is False THEN 'Not Chiller Stock" 
+         WHEN is_chiller_stock_boolean is False THEN "Not Chiller Stock" 
          WHEN is_chiller_stock_boolean is NULL THEN "Unfined"
-         ELSE 'Invalid' end as  is_chiller_stock, 
+         ELSE 'Invalid' end is_chiller_stock, 
     FROM dim_product_cast_type
     )
 SELECT
   dim_product.product_key,
   dim_product.product_name,
   dim_product.brand_name, 
-  dim_product.is_chiller_stock
+  dim_product.is_chiller_stock,
   dim_product.supplier_key, 
   dim_supplier.supplier_name
-FROM  dim_product_cast_type as dim_product
+FROM  dim_product__convert_boolean as dim_product
 LEFT JOIN {{ref('dim_supplier')}} as dim_supplier
 ON dim_product.supplier_key = dim_supplier.supplier_key
