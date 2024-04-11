@@ -21,9 +21,14 @@ WITH
   FROM
     dim_customer__rename_column )
 SELECT
-  customer_key,
-  customer_name, 
-  customer_category_key, 
-  buying_group_key
-FROM
-  dim_customer__cast_type
+  dim_customer.customer_key,
+  dim_customer.customer_name, 
+  dim_customer.customer_category_key, 
+  dim_customer_category.customer_category_name,
+  dim_customer.buying_group_key, 
+  dim_buying_group.buying_group_name
+FROM   dim_customer__cast_type dim_customer
+LEFT JOIN {{ ref ('stg_dim_customer_category') }} as dim_customer_category 
+ON dim_customer.customer_category_key = dim_customer_category.customer_category_key
+LEFT JOIN {{ ref ('stg_dim_buying_group') }} as dim_buying_group
+ON dim_buying_group.buying_group_key = dim_customer.buying_group_key
