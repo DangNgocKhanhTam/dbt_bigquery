@@ -17,4 +17,4 @@ select
 case when date_of_week_short in ('Mon', 'Tue', 'Wed', 'Thu', 'Fri') then "Weekday"
      when date_of_week_short in ('Sat', 'Sun') then 'Weekend'
      else 'Invalid' end is_weekday_or_weekend
-from dim_date__enrich
+from dim_date__enrich 
