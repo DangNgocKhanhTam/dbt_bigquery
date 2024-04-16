@@ -1,6 +1,6 @@
 with dim_buying_group__source as (
     SELECT *
-    FROM `vit-lam-data.wide_world_importers.sales__buying_groups`
+    FROM `wide_world_importers.sales__buying_groups`
 )
 , dim_buying_group__rename_column as (
     select 

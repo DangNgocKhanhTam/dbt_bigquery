@@ -3,7 +3,7 @@ WITH
   SELECT
     *
   FROM
-    `vit-lam-data.wide_world_importers.warehouse__stock_items` ),
+    `wide_world_importers.warehouse__stock_items` ),
   dim_product__rename_column AS (
   SELECT
     stock_item_id AS product_key,

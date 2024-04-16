@@ -3,7 +3,7 @@ WITH
   SELECT
     *
   FROM
-    `vit-lam-data.wide_world_importers.sales__customers` ),
+    `wide_world_importers.sales__customers` ),
   dim_customer__rename_column AS (
   SELECT
     customer_id AS customer_key,

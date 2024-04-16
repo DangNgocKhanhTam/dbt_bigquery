@@ -1,6 +1,6 @@
 with dim_customer_category__source as (
     SELECT *
-    FROM `vit-lam-data.wide_world_importers.sales__customer_categories`
+    FROM `wide_world_importers.sales__customer_categories`
 )
 , dim_customer_category__rename_column as (
     select 
