@@ -1,8 +1,13 @@
 Welcome to your new dbt project!
-Model using DBT: 
+**Model using DBT: **
+
 ![image](https://github.com/DangNgocKhanhTam/dbt_bigquery/assets/106906079/a2be2f0a-d89e-49ee-9a4f-69a36185985f)
 
 
+Check out details in folder: 
++ Analytics : https://github.com/DangNgocKhanhTam/dbt_bigquery/tree/main/models/example/analytics
++ Staging: https://github.com/DangNgocKhanhTam/dbt_bigquery/tree/main/models/staging
++ Diagram: https://github.com/DangNgocKhanhTam/dbt_bigquery/tree/main/models/example/diagrams
 
 
 ### Using the starter project
