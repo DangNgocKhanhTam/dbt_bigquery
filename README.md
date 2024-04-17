@@ -1,4 +1,9 @@
 Welcome to your new dbt project!
+Model using DBT: 
+![image](https://github.com/DangNgocKhanhTam/dbt_bigquery/assets/106906079/a2be2f0a-d89e-49ee-9a4f-69a36185985f)
+
+
+
 
 ### Using the starter project
 
@@ -13,3 +18,4 @@ Try running the following commands:
 - Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
 - Find [dbt events](https://events.getdbt.com) near you
 - Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+![Uploading image.png…]()
