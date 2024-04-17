@@ -1,0 +1,79 @@
+
+Table dim_customer {
+  customer_key integer [primary key]
+  customer_name varchar
+  customer_category_key integer
+  customer_category_name varchar
+  buying_group_key integer
+  is_on_credit_hold boolean
+  buying_group_name integer
+}
+
+Table dim_date {
+  date date [primary key]
+  date_of_week varchar
+  date_of_week_short varchar
+  year_month date
+  month string
+  year_number integer
+  is_weekday_or_weekend string
+}
+
+Table dim_person {
+  person_key integer [primary key]
+  full_name varchar
+}
+
+Table dim_product {
+  product_key integer [primary key]
+  product_name varchar
+  brand_name varchar
+  is_chiller_stock boolean
+  supplier_key integer
+  supplier_name varchar  
+}
+
+Table dim_supplier {
+  supplier_key integer [primary key]
+  supplier_name varchar
+}
+
+
+Table fact_sales_order_line {
+  sales_order_line_key integer [primary key]
+  sales_order_key integer
+  customer_key integer
+  picked_by_person_key integer
+  order_date date
+  product_key integer
+  quantity integer
+  unit_price integer
+  gross_amount integer
+}
+
+Table stg_dim_buying_group  {
+  buying_group_key integer [primary key]
+  buying_group_name varchar
+}
+
+Table stg_dim_customer_category {
+  customer_category_key integer [primary key]
+  customer_category_name varchar
+}
+
+Table stg_fact_sales_order {
+  sales_order_key integer [primary key]
+  customer_key varchar
+  picked_by_person_key integer
+  order_date date
+}
+
+
+Ref: fact_sales_order_line.sales_order_key > stg_fact_sales_order.sales_order_key
+Ref: fact_sales_order_line.order_date > dim_date.date
+Ref: fact_sales_order_line.customer_key > dim_customer.customer_key
+Ref: fact_sales_order_line.product_key > dim_product.product_key
+Ref: dim_customer.customer_category_name > stg_dim_customer_category.customer_category_key
+Ref: dim_customer.buying_group_key > stg_dim_buying_group.buying_group_key
+Ref: dim_product.supplier_key > dim_supplier.supplier_key
+Ref: fact_sales_order_line.picked_by_person_key > dim_person.person_key
